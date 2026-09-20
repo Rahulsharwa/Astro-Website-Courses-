@@ -1,0 +1,28 @@
+---
+type Crumb = { name: string; href?: string };
+const { current, parent } = Astro.props as { current: string; parent?: Crumb };
+
+const trail: Crumb[] = [{ name: 'Home', href: '/' }, ...(parent ? [parent] : []), { name: current }];
+const base = Astro.site ?? new URL('https://example.com');
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: trail.map((crumb, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: crumb.name,
+    ...(crumb.href ? { item: new URL(crumb.href, base).href } : {})
+  }))
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+<nav aria-label="Breadcrumb" class="container py-5 text-xs font-semibold text-brand-muted">
+  {trail.map((crumb, index) => (
+    <>
+      {index > 0 && <span class="px-2" aria-hidden="true">/</span>}
+      {crumb.href
+        ? <a class="transition hover:text-brand-blue" href={crumb.href}>{crumb.name}</a>
+        : <span aria-current="page">{crumb.name}</span>}
+    </>
+  ))}
+</nav>

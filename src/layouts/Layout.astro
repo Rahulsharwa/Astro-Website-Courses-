@@ -1,0 +1,72 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+import '../styles/global.css';
+const { title, description, image = '/og.svg' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const origin = (Astro.site ?? new URL('https://example.com')).origin;
+
+const organisation = {
+  '@type': ['EducationalOrganization', 'LocalBusiness'],
+  '@id': `${origin}/#organization`,
+  name: site.name,
+  alternateName: site.shortName,
+  url: `${origin}/`,
+  image: new URL('/og.svg', Astro.site).href,
+  telephone: site.phones.map((phone) => `+91${phone}`),
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Karmchari Bhawan, Kachahari Chowk',
+    addressLocality: 'Dhamtari',
+    addressRegion: 'Chhattisgarh',
+    addressCountry: 'IN'
+  },
+  hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.mapQuery)}`,
+  areaServed: [
+    { '@type': 'City', name: 'Dhamtari' },
+    { '@type': 'State', name: 'Chhattisgarh' }
+  ]
+};
+
+const website = {
+  '@type': 'WebSite',
+  '@id': `${origin}/#website`,
+  url: `${origin}/`,
+  name: site.name,
+  inLanguage: 'en-IN',
+  publisher: { '@id': `${origin}/#organization` }
+};
+
+const baseSchema = { '@context': 'https://schema.org', '@graph': [organisation, website] };
+---
+<html lang="en-IN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <script type="application/ld+json" set:html={JSON.stringify(baseSchema)} is:inline />
+  </head>
+  <body>
+    <Header />
+    <main><slot /></main>
+    <Footer />
+    <div class="fixed bottom-0 left-0 right-0 z-50 flex md:hidden">
+      <a class="btn btn-navy btn-sm btn-block flex-1" href={`tel:+91${site.phones[0]}`}>Call now</a>
+      <a class="btn btn-whatsapp btn-sm btn-block flex-1" href={`https://wa.me/91${site.phones[0]}?text=Hello%20NAC-MIT%2C%20I%20want%20course%20information.`}>WhatsApp</a>
+    </div>
+  </body>
+</html>

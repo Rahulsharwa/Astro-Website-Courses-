@@ -1,0 +1,7 @@
+---
+import { categoryFaqs, type CourseFaq } from '../data/site';
+const { faqs = categoryFaqs } = Astro.props as { faqs?: CourseFaq[] };
+---
+<div class="divide-y divide-brand-line border-y border-brand-line">
+  {faqs.map((faq: CourseFaq, index: number) => <details class="py-5" open={index === 0}><summary class="flex items-center justify-between gap-4 font-semibold">{faq.question}<span class="text-xl text-brand-blue">+</span></summary><p class="max-w-2xl pt-3 text-sm leading-7 text-brand-muted">{faq.answer}</p></details>)}
+</div>

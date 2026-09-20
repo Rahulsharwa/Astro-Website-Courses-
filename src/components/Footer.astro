@@ -1,0 +1,22 @@
+---
+import { site, courses, courseGroups } from '../data/site';
+---
+<footer class="border-t border-brand-line bg-brand-ink pb-24 pt-14 text-white md:pb-10">
+  <div class="container grid gap-10 md:grid-cols-[1.1fr_1.4fr_1fr]">
+    <div>
+      <div class="mb-4 flex items-center gap-3"><span class="grid h-10 w-10 place-items-center bg-brand-yellow font-bold text-brand-navy">NM</span><strong>{site.name}</strong></div>
+      <p class="max-w-sm text-sm leading-7 text-brand-muted-light">Practical computer training for students and learners in Dhamtari.</p>
+    </div>
+    <div>
+      <h2 class="mb-4 text-base text-brand-yellow">Courses</h2>
+      <div class="grid gap-6 sm:grid-cols-2">
+        {courseGroups.map((group) => <div><h3 class="mb-2 text-sm font-bold text-white">{group.title}</h3><nav class="grid gap-2 text-sm text-brand-muted-light" aria-label={group.title}>{group.slugs.map((slug) => { const course = courses.find((item) => item.slug === slug); return course && <a class="rounded-sm hover:text-brand-yellow focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow" href={`/courses/${course.slug}/`}>{course.title}</a>; })}</nav></div>)}
+      </div>
+    </div>
+    <div>
+      <h2 class="mb-4 text-base text-brand-yellow">Explore & contact</h2>
+      <div class="grid gap-2 text-sm text-brand-muted-light"><a class="rounded-sm hover:text-brand-yellow focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow" href="/about/">About the institute</a><a class="rounded-sm hover:text-brand-yellow focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow" href="/courses/">All courses</a><a class="rounded-sm hover:text-brand-yellow focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow" href="/curriculum/">Curriculum</a><a class="rounded-sm hover:text-brand-yellow focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow" href="/certificate-and-affiliation/">Certificate & affiliation</a><a class="rounded-sm hover:text-brand-yellow focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow" href="tel:9302789814">9302789814</a><a class="rounded-sm hover:text-brand-yellow focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow" href="tel:9039989814">9039989814</a><span>{site.address}</span></div>
+    </div>
+  </div>
+  <div class="container mt-12 border-t border-white/15 pt-5 text-xs text-brand-muted-light">© {new Date().getFullYear()} NAC-MIT Computer Training Center. Course details and schedules are subject to confirmation.</div>
+</footer>

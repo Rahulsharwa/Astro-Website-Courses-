@@ -1,0 +1,49 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CourseCard from '../../components/CourseCard.astro';
+import { courses, categoryFaqs } from '../../data/site';
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: categoryFaqs.map((item) => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })) };
+---
+<Layout title="Computer Courses in Dhamtari | NAC-MIT" description="Compare DCA, PGDCA, Tally Prime, AI, data entry, basic computer, MS Office and typing courses at NAC-MIT in Dhamtari.">
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Breadcrumbs current="All courses" />
+  <section class="container py-12"><p class="eyebrow">Find your course</p><h1 class="mt-3 max-w-2xl text-5xl">Computer courses in Dhamtari, organised clearly.</h1><p class="mt-5 max-w-2xl text-lg leading-8 text-brand-muted">Choose from beginner, diploma, accounting, AI, office, typing and practical computer courses at NAC-MIT Computer Training Center.</p><div class="mt-10"><label class="sr-only" for="course-search">Search courses</label><input id="course-search" class="w-full border border-brand-line px-5 py-4" placeholder="Search by course or skill..." data-course-search /></div><div class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4" data-course-grid>{courses.map((course) => <div data-course-card data-search={`${course.title} ${course.description} ${course.curriculum.join(' ')}`}><CourseCard course={course} /></div>)}</div><p class="hidden py-12 text-center text-brand-muted" data-empty>No course matches that search.</p></section>
+  <section class="bg-brand-mist py-16">
+    <div class="container">
+      <p class="eyebrow">Choosing a course</p>
+      <h2 class="mt-3 max-w-2xl text-4xl">Which computer course should you join?</h2>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-brand-muted">Most students who walk into NAC-MIT are deciding between a diploma and a shorter skill course. The difference is time and depth, not quality &mdash; both are taught with one hour of theory, one hour of practical, and a computer for each student.</p>
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        <div class="border border-brand-line bg-white p-7">
+          <h3 class="text-xl">If you have finished 10th standard</h3>
+          <p class="mt-3 text-sm leading-7 text-brand-muted">DCA is the usual starting point. It is a full computer diploma course covering fundamentals, MS Office, typing, internet and email, and it is affiliated to Dr. C.V. Raman University. If you want something shorter first, the Basic Computer Course builds the same confidence without the examination.</p>
+          <p class="mt-4 flex flex-wrap gap-4 text-sm"><a class="btn-link" href="/courses/dca-course/">DCA course details</a><a class="btn-link" href="/courses/basic-computer-course/">Basic computer course</a></p>
+        </div>
+        <div class="border border-brand-line bg-white p-7">
+          <h3 class="text-xl">If you have finished 12th standard or graduation</h3>
+          <p class="mt-3 text-sm leading-7 text-brand-muted">PGDCA goes further than DCA &mdash; programming logic, databases and SQL, web technology and project work &mdash; and is also affiliated to Dr. C.V. Raman University. It suits students aiming at office, administration and data-related roles.</p>
+          <p class="mt-4 flex flex-wrap gap-4 text-sm"><a class="btn-link" href="/courses/pgdca-course/">PGDCA course details</a><a class="btn-link" href="/fees/">Compare course fees</a></p>
+        </div>
+        <div class="border border-brand-line bg-white p-7">
+          <h3 class="text-xl">If you are looking for a job-oriented skill</h3>
+          <p class="mt-3 text-sm leading-7 text-brand-muted">Short, practical courses train one skill properly. Tally Prime covers billing, ledgers and GST-related accounting for accounts assistant work. The Data Entry Operator course builds typing speed, spreadsheets and record handling for back-office roles.</p>
+          <p class="mt-4 flex flex-wrap gap-4 text-sm"><a class="btn-link" href="/courses/tally-prime-course/">Tally Prime course</a><a class="btn-link" href="/courses/data-entry-operator-course/">Data entry course</a></p>
+        </div>
+        <div class="border border-brand-line bg-white p-7">
+          <h3 class="text-xl">If you are starting from zero</h3>
+          <p class="mt-3 text-sm leading-7 text-brand-muted">There is no age limit and no prior experience needed. Beginners usually start with basic computer training or typing, then move on once they are comfortable. Every course is taught step by step, and you can ask to sit in before deciding.</p>
+          <p class="mt-4 flex flex-wrap gap-4 text-sm"><a class="btn-link" href="/courses/typing-course/">Typing course</a><a class="btn-link" href="/contact/#counselling">Ask for guidance</a></p>
+        </div>
+      </div>
+      <p class="mt-8 max-w-3xl leading-8 text-brand-muted">Still unsure? Call {'9302789814'} or visit NAC-MIT Computer Training Center at Karmchari Bhawan, Kachahari Chowk, and we will go through eligibility, fees and batch timings with you before you decide.</p>
+    </div>
+  </section>
+  <section class="container py-16"><p class="eyebrow">Course FAQs</p><h2 class="mt-3 text-4xl">Frequently asked questions</h2><div class="mt-8 divide-y divide-brand-line border-y border-brand-line">{categoryFaqs.map((item, index) => <details class="py-5" open={index === 0}><summary class="flex items-center justify-between gap-4 font-semibold">{item.question}<span class="text-xl text-brand-blue">+</span></summary><p class="max-w-3xl pt-3 text-sm leading-7 text-brand-muted">{item.answer}</p></details>)}</div></section>
+</Layout>
+<script>
+  const search = document.querySelector('[data-course-search]');
+  const cards = [...document.querySelectorAll('[data-course-card]')];
+  const empty = document.querySelector('[data-empty]');
+  search?.addEventListener('input', () => { const value = (search as HTMLInputElement).value.toLowerCase(); let count = 0; cards.forEach((card) => { const show = card.getAttribute('data-search')?.toLowerCase().includes(value); card.classList.toggle('hidden', !show); if (show) count++; }); empty?.classList.toggle('hidden', count !== 0); });
+</script>

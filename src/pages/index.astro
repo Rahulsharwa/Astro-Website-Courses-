@@ -1,0 +1,165 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { courses, site } from '../data/site';
+import CourseCard from '../components/CourseCard.astro';
+import FAQ from '../components/FAQ.astro';
+---
+<Layout
+  title="Computer Institute in Dhamtari | NAC-MIT Computer Training Center"
+  description="Practical computer courses in Dhamtari — DCA, PGDCA, Tally Prime, AI, MS Office, data entry and Hindi/English typing at NAC-MIT, Karmchari Bhawan, Kachahari Chowk."
+>
+  <section class="grid-paper overflow-hidden border-b border-brand-line">
+    <div class="container grid gap-12 py-16 md:grid-cols-[1.05fr_.95fr] md:items-center md:py-24">
+      <div class="reveal">
+        <p class="eyebrow mb-5">Computer training centre in Dhamtari, Chhattisgarh</p>
+        <h1 class="max-w-3xl text-5xl font-bold leading-[1.03] tracking-tight md:text-7xl">
+          Practical computer courses in <span class="text-brand-blue">Dhamtari.</span>
+        </h1>
+        <p class="mt-7 max-w-2xl text-lg leading-8 text-brand-muted">
+          NAC-MIT Computer Training Center runs job-oriented computer classes at Karmchari Bhawan, Kachahari Chowk — DCA and PGDCA, Tally Prime, MS Office, Hindi and English typing, data entry and AI tools. Every batch is one hour of theory and one hour of practical, with one computer for each student. Compare the courses below, or call {site.phones[0]} to talk through fees, eligibility and the next batch.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center gap-3">
+          <a class="btn btn-primary" href="/courses/">See all courses and fees</a>
+          <a class="btn btn-outline" href="/curriculum.md" download>Download curriculum</a>
+          <a class="btn-link px-2 py-3" href={`tel:+91${site.phones[0]}`}>Call about admission →</a>
+        </div>
+      </div>
+      <div class="relative min-h-[360px] bg-brand-navy p-8 text-white md:min-h-[460px]">
+        <div class="absolute right-0 top-0 h-32 w-32 bg-brand-yellow"></div>
+        <div class="absolute bottom-0 left-0 h-24 w-24 border-8 border-brand-blue"></div>
+        <div class="relative flex h-full flex-col justify-between">
+          <div class="flex justify-between text-xs font-bold uppercase tracking-[.16em] text-brand-muted-light"><span>Learn by doing</span><span>NM / 01</span></div>
+          <div>
+            <div class="mb-6 h-3 w-28 bg-brand-yellow"></div>
+            <h2 class="max-w-sm text-4xl leading-tight md:text-5xl">One computer per student, every session.</h2>
+            <p class="mt-5 max-w-sm text-sm leading-6 text-brand-muted-light">You are not watching someone else type. Theory that makes sense, practical time at your own machine, and course details you can ask about directly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-20">
+    <div class="grid gap-10 md:grid-cols-[.8fr_1.2fr]">
+      <div>
+        <p class="eyebrow">At a glance</p>
+        <h2 class="mt-3 text-4xl">Computer courses after 10th, after 12th, and for complete beginners.</h2>
+      </div>
+      <div class="grid gap-5 text-lg leading-8 text-brand-muted md:grid-cols-2">
+        <p>Computer courses after 10th usually start with DCA, a computer diploma course affiliated to Dr. C.V. Raman University. Computer courses after 12th lead to PGDCA, which goes further into programming logic, databases and web technology.</p>
+        <p>If you are not aiming at a diploma, the shorter job-oriented computer courses train one skill properly — Tally Prime for billing and GST accounting, data entry for back-office work, MS Office for documents and spreadsheets.</p>
+        <p>Beginners are welcome with no prior experience and no age limit. Basic computer training and typing are the usual starting points, and you can move on once you are comfortable.</p>
+        <p>Training runs in fixed batches with one hour of theory and one hour of practical. Ask the institute to confirm the schedule for the course you are considering.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-brand-mist py-20">
+    <div class="container">
+      <div class="mb-10 flex flex-wrap items-end justify-between gap-5">
+        <div>
+          <p class="eyebrow">Choose your direction</p>
+          <h2 class="mt-3 text-4xl">Courses for real computer work.</h2>
+        </div>
+        <a class="btn-link" href="/courses/">See all courses →</a>
+      </div>
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">{courses.map((course) => <CourseCard course={course} />)}</div>
+    </div>
+  </section>
+
+  <section class="container grid gap-10 py-20 md:grid-cols-2">
+    <div>
+      <p class="eyebrow">Why NAC-MIT</p>
+      <h2 class="mt-3 text-4xl">Why students choose NAC-MIT in Dhamtari.</h2>
+      <p class="mt-5 leading-7 text-brand-muted">There is more than one computer institute in Dhamtari, so it is worth knowing what you are choosing between. Every course page here explains what is included, who it is for, what it costs and what to ask before joining — which makes counselling clearer for students and families, and means nobody enrols without knowing what they are paying for.</p>
+    </div>
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div class="border-l-4 border-brand-yellow bg-brand-mist p-5">
+        <strong>01 / One computer each</strong>
+        <p class="mt-2 text-sm leading-6 text-brand-muted">Practical training with a machine for every student, so the hands-on hour is genuinely hands-on.</p>
+      </div>
+      <div class="border-l-4 border-brand-blue bg-brand-mist p-5">
+        <strong>02 / Theory plus practical</strong>
+        <p class="mt-2 text-sm leading-6 text-brand-muted">One hour explaining how it works, one hour doing it. Fundamentals first, then the software.</p>
+      </div>
+      <div class="border-l-4 border-brand-blue bg-brand-mist p-5">
+        <strong>03 / Certificate support</strong>
+        <p class="mt-2 text-sm leading-6 text-brand-muted">Marksheet and certificate guidance according to course rules and eligibility. Course kit and books where listed.</p>
+      </div>
+      <div class="border-l-4 border-brand-yellow bg-brand-mist p-5">
+        <strong>04 / University affiliation</strong>
+        <p class="mt-2 text-sm leading-6 text-brand-muted">DCA and PGDCA are run as an authorised centre of Dr. C.V. Raman University, Bilaspur.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-brand-navy py-20 text-white">
+    <div class="container grid gap-12 md:grid-cols-2 md:items-start">
+      <div>
+        <p class="eyebrow !text-brand-yellow">Who these courses are for</p>
+        <h2 class="mt-3 text-4xl">From first click to a skill you can work with.</h2>
+        <p class="mt-5 max-w-lg leading-7 text-brand-muted-light">Start with the tasks that feel difficult. Build a repeatable way to work with documents, files, email, spreadsheets and everyday digital tools.</p>
+      </div>
+      <div class="grid gap-4">
+        <div class="border border-white/15 p-6">
+          <span class="text-2xl text-brand-yellow">The school leaver</span>
+          <p class="mt-3 text-sm leading-6 text-brand-muted-light">Finished 10th or 12th and wants a computer qualification that counts. DCA or PGDCA, with practical assignments and a marksheet at the end.</p>
+        </div>
+        <div class="border border-white/15 p-6">
+          <span class="text-2xl text-brand-yellow">The job seeker</span>
+          <p class="mt-3 text-sm leading-6 text-brand-muted-light">Applying for office, clerical and back-office roles. Typing speed, spreadsheets and record handling through the data entry operator course.</p>
+        </div>
+        <div class="border border-brand-blue bg-brand-blue p-6">
+          <span class="text-2xl text-white">The shop or business owner</span>
+          <p class="mt-3 text-sm leading-6 text-white/85">Handling billing, stock and GST entries. Tally Prime covers company setup, ledgers, invoices, inventory and reports.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container grid gap-12 py-20 md:grid-cols-2">
+    <div>
+      <p class="eyebrow">Learning format</p>
+      <h2 class="mt-3 text-4xl">Batch timings and how a class runs.</h2>
+      <div class="mt-8 grid grid-cols-2 gap-4">
+        <div class="bg-brand-yellow p-6"><strong class="text-3xl">01 hr</strong><p class="mt-2 text-sm font-semibold">Theory</p></div>
+        <div class="bg-brand-blue-tint p-6"><strong class="text-3xl text-brand-blue">01 hr</strong><p class="mt-2 text-sm font-semibold">Practical</p></div>
+      </div>
+      <p class="mt-5 text-sm leading-6 text-brand-muted">Available batch timings: 8:00 AM to 10:00 AM and 10:00 AM to 12:00 PM. Typing practice may be a separate one-hour session if confirmed. Fixed timings are currently listed for DCA and PGDCA; other course schedules are confirmed at admission.</p>
+      <p class="mt-4 text-sm leading-6 text-brand-muted">Computer classes in Dhamtari run at {site.address}, near Kachahari Chowk. The institute is open {site.instituteHours} — walk in during those hours to see the classroom before you decide.</p>
+    </div>
+    <div class="border border-brand-line p-8">
+      <p class="eyebrow">Student resources</p>
+      <h3 class="mt-3 text-2xl">Know what to expect before admission.</h3>
+      <ul class="mt-6 grid gap-4 text-sm leading-6 text-brand-muted">
+        <li>✓ Course-wise curriculum, subjects and eligibility</li>
+        <li>✓ Computer course fees in Dhamtari, with confirmation notes</li>
+        <li>✓ Course books and kit details where listed</li>
+        <li>✓ Required documents for diploma admissions</li>
+        <li>✓ Direct counselling by phone or at the centre</li>
+      </ul>
+      <a class="btn-link mt-8" href="/admission-information/">Read admission information →</a>
+    </div>
+  </section>
+
+  <section class="bg-brand-mist py-20">
+    <div class="container grid gap-12 md:grid-cols-[.75fr_1.25fr]">
+      <div>
+        <p class="eyebrow">Questions, answered</p>
+        <h2 class="mt-3 text-4xl">Computer course questions, answered.</h2>
+      </div>
+      <FAQ />
+    </div>
+  </section>
+
+  <section class="container py-20">
+    <div class="grid gap-10 bg-brand-yellow p-8 md:grid-cols-[1fr_auto] md:items-center md:p-12">
+      <div>
+        <p class="eyebrow !text-brand-navy">Ready to ask?</p>
+        <h2 class="mt-3 text-4xl">Join a computer course in Dhamtari.</h2>
+        <p class="mt-3 max-w-xl text-brand-navy">Call {site.phones[0]} or {site.phones[1]} for computer course admission, fee confirmation and batch availability — or visit {site.address}.</p>
+      </div>
+      <a class="btn btn-navy" href="/contact/#counselling">Request counselling</a>
+    </div>
+  </section>
+</Layout>

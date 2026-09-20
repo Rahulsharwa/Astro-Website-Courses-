@@ -1,0 +1,107 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AnchoredSeoContent from '../../components/AnchoredSeoContent.astro';
+import { courses, site } from '../../data/site';
+
+export function getStaticPaths() {
+  return courses.map((course) => ({ params: { slug: course.slug }, props: { course } }));
+}
+
+const { course } = Astro.props;
+const origin = (Astro.site ?? new URL('https://example.com')).origin;
+
+const courseSchema = {
+  '@type': 'Course',
+  name: `${course.title} in Dhamtari`,
+  description: course.description,
+  provider: { '@id': `${origin}/#organization` },
+  url: new URL(`/courses/${course.slug}/`, Astro.site).href,
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'onsite',
+    courseWorkload: 'PT2H',
+    location: { '@id': `${origin}/#organization` }
+  },
+  // Only where a real published price exists; the rest say "contact the institute".
+  ...(course.feeAmount
+    ? {
+        offers: {
+          '@type': 'Offer',
+          price: course.feeAmount,
+          priceCurrency: 'INR',
+          category: course.feePeriod === 'month' ? 'Monthly fee' : 'Course fee',
+          availability: 'https://schema.org/InStock'
+        }
+      }
+    : {})
+};
+
+const faqSchema = {
+  '@type': 'FAQPage',
+  mainEntity: course.faqs.map((item) => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } }))
+};
+
+const pageSchema = { '@context': 'https://schema.org', '@graph': [courseSchema, faqSchema] };
+---
+<Layout title={`${course.title} in Dhamtari | NAC-MIT`} description={`${course.title} details, syllabus, fees, eligibility, practical training and admission information at NAC-MIT Computer Training Center in Dhamtari.`}>
+  <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} is:inline />
+  <Breadcrumbs current={course.title} parent={{ name: 'Courses', href: '/courses/' }} />
+
+  <section class="bg-brand-navy py-16 text-white md:py-24">
+    <div class="container grid gap-10 md:grid-cols-[1fr_360px] md:items-end">
+      <div>
+        <p class="eyebrow !text-brand-yellow">{course.eyebrow}</p>
+        <h1 class="mt-4 max-w-3xl text-5xl leading-tight md:text-6xl">{course.title}</h1>
+        <p class="mt-6 max-w-2xl text-lg leading-8 text-brand-muted-light">{course.description}</p>
+      </div>
+      <div class="bg-white p-7 text-brand-ink">
+        <p class="eyebrow">Course fee</p>
+        <p class="mt-2 text-2xl font-bold">{course.fee}</p>
+        <p class="mt-5 border-t border-brand-line pt-4 text-sm"><strong>Eligibility:</strong> {course.eligibility}</p>
+        <p class="mt-3 text-sm"><strong>Institute hours:</strong> {site.instituteHours}</p>
+        {course.batchTimings && <p class="mt-3 text-sm"><strong>Batch timings:</strong> {course.batchTimings.join(' or ')}</p>}
+        <a class="btn btn-primary btn-block mt-6" href="/contact/#counselling">Join the {course.shortTitle} course</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container grid gap-12 py-16 md:grid-cols-[1.2fr_.8fr]">
+    <div>
+      <p class="eyebrow">What you will learn</p>
+      <h2 class="mt-3 text-4xl">{course.shortTitle} course syllabus and subjects.</h2>
+      <ul class="mt-8 grid gap-4">{course.curriculum.map((item) => <li class="flex gap-3 border-b border-brand-line pb-4 text-brand-muted"><span class="font-bold text-brand-blue">✓</span>{item}</li>)}</ul>
+    </div>
+    <div>
+      <p class="eyebrow">Course highlights</p>
+      <ul class="mt-6 grid gap-3">{course.highlights.map((item) => <li class="border-l-4 border-brand-yellow bg-brand-mist p-4 text-sm leading-6">{item}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="bg-brand-mist py-16">
+    <div class="container grid gap-10 md:grid-cols-2">
+      <div><p class="eyebrow">Your starting point</p><h2 class="mt-3 text-4xl">Before joining</h2><ul class="mt-6 grid gap-3">{course.before.map((item) => <li class="bg-white p-4 text-brand-muted">{item}</li>)}</ul></div>
+      <div><p class="eyebrow">Your next step</p><h2 class="mt-3 text-4xl">After completing</h2><ul class="mt-6 grid gap-3">{course.after.map((item) => <li class="bg-white p-4 text-brand-muted">{item}</li>)}</ul></div>
+    </div>
+  </section>
+
+  <section class="container py-16">
+    <p class="eyebrow">Why learn at NAC-MIT</p>
+    <h2 class="mt-3 text-4xl">Benefits, practical training and facilities</h2>
+    <ul class="mt-8 grid gap-4 md:grid-cols-2">{course.benefits.map((item) => <li class="border border-brand-line p-5 text-brand-muted"><span class="mr-2 font-bold text-brand-blue">✓</span>{item}</li>)}</ul>
+  </section>
+
+  {course.documents && <section class="bg-brand-mist py-16"><div class="container"><p class="eyebrow">Admission checklist</p><h2 class="mt-3 text-4xl">Required documents</h2><ul class="mt-8 grid gap-3 sm:grid-cols-2">{course.documents.map((item) => <li class="bg-white p-5 font-semibold">{item}</li>)}</ul></div></section>}
+
+  {course.kit && <section class="bg-brand-mist py-16"><div class="container grid gap-10 md:grid-cols-2"><div><p class="eyebrow">Included where listed</p><h2 class="mt-3 text-4xl">Course kit</h2><p class="mt-5 leading-7 text-brand-muted">{course.kitNote}</p></div><ul class="grid gap-3 sm:grid-cols-2">{course.kit.map((item) => <li class="bg-white p-5 font-semibold">{item}</li>)}</ul></div></section>}
+
+  {course.affiliation && <section class="container py-16"><div class="border-l-4 border-brand-blue bg-brand-blue-tint p-7"><p class="eyebrow">Affiliation and partnership</p><p class="mt-3 text-lg leading-8">{course.affiliation}</p></div></section>}
+
+  <AnchoredSeoContent course={course} />
+
+  <section class="bg-brand-mist py-16">
+    <div class="container"><p class="eyebrow">Course FAQs</p><h2 class="mt-3 text-4xl">Frequently asked questions</h2><div class="mt-8 divide-y divide-brand-line border-y border-brand-line">{course.faqs.map((item, index) => <details class="py-5" open={index === 0}><summary class="flex items-center justify-between gap-4 font-semibold">{item.question}<span class="text-xl text-brand-blue">+</span></summary><p class="max-w-3xl pt-3 text-sm leading-7 text-brand-muted">{item.answer}</p></details>)}</div></div>
+  </section>
+
+  <section class="container py-12"><div class="grid gap-5 bg-brand-yellow p-8 md:grid-cols-[1fr_auto] md:items-center"><div><h2 class="text-3xl">Join the {course.shortTitle} course in Dhamtari.</h2><p class="mt-2 max-w-xl text-sm leading-6 text-brand-navy">Call {site.phones[0]} for {course.shortTitle} course admission, fee confirmation and batch availability, or visit the institute to enrol directly.</p></div><a class="btn btn-navy" href={`tel:+91${site.phones[0]}`}>Call now</a></div></section>
+</Layout>

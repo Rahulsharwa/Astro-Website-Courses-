@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import "tailwindcss";
+
+/* Brand tokens. Registered with Tailwind so `bg-brand-blue`, `border-brand-line`
+   etc. exist as real utilities and hex literals stay out of the markup. */
+@theme {
+  --color-brand-ink: #102238;
+  --color-brand-navy: #122d4f;
+  --color-brand-navy-dark: #0b1f38;
+  --color-brand-blue: #0d67c5;
+  --color-brand-blue-dark: #0a5199;
+  --color-brand-blue-tint: #eaf3fb;
+  --color-brand-yellow: #f8c84e;
+  --color-brand-mist: #f4f8fc;
+  --color-brand-line: #dce7f2;
+  /* 5.02:1 on white. Replaces #8798a9 (2.76), #8190a0 (3.11), #718398 (3.89). */
+  --color-brand-muted: #5f7184;
+  --color-brand-muted-light: #b9c7d5;
+  /* 5.02:1 with white text. Replaces #1fa855 (3.09, failed AA) and #168347. */
+  --color-brand-whatsapp: #15803d;
+  --color-brand-whatsapp-dark: #116633;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    color: var(--color-brand-ink);
+    background: #fff;
+    font-family: 'DM Sans', sans-serif;
+  }
+  h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; letter-spacing: 0; }
+  a { color: inherit; text-decoration: none; }
+
+  /* Tailwind preflight strips border, padding and background from form controls.
+     Without this the counselling form renders borderless and transparent. */
+  input, select, textarea {
+    width: 100%;
+    border: 1px solid var(--color-brand-line);
+    background: #fff;
+    padding: 0.75rem 1rem;
+    color: var(--color-brand-ink);
+    transition: border-color 0.18s ease;
+  }
+  input::placeholder, textarea::placeholder { color: var(--color-brand-muted); }
+  input:hover, select:hover, textarea:hover { border-color: var(--color-brand-blue); }
+  select { cursor: pointer; }
+  textarea { resize: vertical; }
+
+  details summary { cursor: pointer; list-style: none; }
+  details summary::-webkit-details-marker { display: none; }
+
+  /* Baseline focus ring for everything interactive. Zero specificity, so any
+     component-level rule below overrides it cleanly. */
+  :where(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-brand-blue);
+    outline-offset: 3px;
+  }
+  :where(input, select, textarea):focus-visible {
+    outline-offset: 1px;
+    border-color: var(--color-brand-blue);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+
+  .eyebrow {
+    color: var(--color-brand-blue);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  /* ---- Buttons -------------------------------------------------------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.4rem;
+    border: 2px solid transparent;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.25;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.18s ease, border-color 0.18s ease,
+                color 0.18s ease, transform 0.12s ease;
+  }
+  .btn-sm { padding: 0.6rem 1rem; font-size: 0.875rem; }
+  .btn-block { display: flex; width: 100%; }
+
+  .btn:active:not(:disabled) { transform: translateY(1px); }
+
+  /* Dual-tone ring: the ink outline reads on light backgrounds, the white
+     inner ring separates it from dark ones. */
+  .btn:focus-visible {
+    outline: 3px solid var(--color-brand-ink);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px #fff;
+  }
+
+  .btn:disabled,
+  .btn[disabled],
+  .btn[aria-disabled='true'] {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .btn-primary {
+    background: var(--color-brand-blue);
+    border-color: var(--color-brand-blue);
+    color: #fff;
+  }
+  .btn-primary:hover:not(:disabled) {
+    background: var(--color-brand-blue-dark);
+    border-color: var(--color-brand-blue-dark);
+  }
+
+  .btn-navy {
+    background: var(--color-brand-navy);
+    border-color: var(--color-brand-navy);
+    color: #fff;
+  }
+  .btn-navy:hover:not(:disabled) {
+    background: var(--color-brand-navy-dark);
+    border-color: var(--color-brand-navy-dark);
+  }
+
+  .btn-outline {
+    background: transparent;
+    border-color: var(--color-brand-ink);
+    color: var(--color-brand-ink);
+  }
+  .btn-outline:hover:not(:disabled) {
+    background: var(--color-brand-ink);
+    color: #fff;
+  }
+
+  .btn-whatsapp {
+    background: var(--color-brand-whatsapp);
+    border-color: var(--color-brand-whatsapp);
+    color: #fff;
+  }
+  .btn-whatsapp:hover:not(:disabled) {
+    background: var(--color-brand-whatsapp-dark);
+    border-color: var(--color-brand-whatsapp-dark);
+  }
+
+  /* Inline text CTAs ("See all courses →"). */
+  .btn-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-weight: 700;
+    color: var(--color-brand-blue);
+    border-bottom: 2px solid transparent;
+    transition: color 0.18s ease, border-color 0.18s ease;
+  }
+  .btn-link:hover {
+    color: var(--color-brand-blue-dark);
+    border-bottom-color: currentColor;
+  }
+
+  /* Icon-only control (mobile nav toggle). */
+  .btn-icon {
+    display: grid;
+    place-items: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    border: 1px solid var(--color-brand-line);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: border-color 0.18s ease, background-color 0.18s ease;
+  }
+  .btn-icon:hover { border-color: var(--color-brand-blue); background: var(--color-brand-mist); }
+
+  /* ---- Misc ----------------------------------------------------------- */
+  .grid-paper {
+    background-image:
+      linear-gradient(#dce7f240 1px, transparent 1px),
+      linear-gradient(90deg, #dce7f240 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .reveal { animation: rise 0.7s both; }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: none; }
+  }
+  .anchor-target { scroll-margin-top: 7rem; }
+  .course-topic-sidebar { z-index: 10; }
+  .course-topic-nav { scrollbar-width: thin; }
+  .course-topic-nav a:focus-visible,
+  .course-topic-nav summary:focus-visible {
+    outline: 2px solid var(--color-brand-blue);
+    outline-offset: 3px;
+  }
+}

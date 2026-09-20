@@ -1,0 +1,32 @@
+---
+import type { Course, SeoTopic } from '../data/site';
+const { course } = Astro.props as { course: Course };
+const topics = course.seoContent;
+---
+<section class="container py-16" aria-labelledby="course-guide-title">
+  <div class="grid gap-10 md:grid-cols-[260px_1fr] md:items-start">
+    {/* min-w-0: grid items default to min-width:auto, which lets the horizontally
+        scrolling topic strip below push the whole page wider than the viewport. */}
+    <aside class="course-topic-sidebar min-w-0 md:sticky md:top-24" aria-label={`${course.title} topic navigation`}>
+      <p class="eyebrow">Course guide</p>
+      <h2 id="course-guide-title" class="mt-3 text-3xl">Answers to common questions</h2>
+      <nav class="course-topic-nav mt-6 min-w-0" aria-label="Course topics">
+        <div class="flex gap-2 overflow-x-auto pb-2 md:grid md:gap-2 md:overflow-visible">
+          {topics.map((topic: SeoTopic, index: number) => <a class={`block shrink-0 border-l-4 px-3 py-2 text-sm font-semibold transition hover:border-brand-blue hover:bg-brand-blue-tint md:shrink ${index === 0 ? 'border-brand-blue bg-brand-blue-tint' : 'border-transparent'}`} href={`#${topic.id}`}>{topic.title}</a>)}
+        </div>
+      </nav>
+    </aside>
+    <div class="grid min-w-0 gap-10">
+      {topics.map((topic: SeoTopic) => <section id={topic.id} class="anchor-target" aria-labelledby={`${topic.id}-title`}>
+        <p class="eyebrow">Course information</p>
+        <h3 id={`${topic.id}-title`} class="mt-2 text-3xl">{topic.title}</h3>
+        <div class="mt-5 divide-y divide-brand-line border-y border-brand-line">
+          {topic.questions.map((question) => <details id={question.id} class="anchor-target py-5" open>
+            <summary class="flex items-center justify-between gap-4 font-semibold">{question.question}<span class="text-xl text-brand-blue" aria-hidden="true">+</span></summary>
+            <p class="max-w-3xl pt-3 text-sm leading-7 text-brand-muted">{question.answer}</p>
+          </details>)}
+        </div>
+      </section>)}
+    </div>
+  </div>
+</section>

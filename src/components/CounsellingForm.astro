@@ -1,0 +1,86 @@
+---
+import { courses, site } from '../data/site';
+
+// Set PUBLIC_WEB3FORMS_KEY in .env to make the form actually deliver enquiries.
+// Free key from https://web3forms.com — no account needed, it emails you the key.
+// Without it the form validates but tells the visitor to call instead, rather
+// than silently swallowing the enquiry.
+const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? '';
+---
+<form id="counselling" class="grid gap-5" data-enquiry-form data-access-key={accessKey} novalidate>
+  <div class="grid gap-5 sm:grid-cols-2">
+    <label>Student name<input name="name" required autocomplete="name" /></label>
+    <label>Phone number<input name="phone" type="tel" required pattern="[0-9]{10}" inputmode="numeric" autocomplete="tel" /></label>
+  </div>
+  <div class="grid gap-5 sm:grid-cols-2">
+    <label>Email address <span class="font-normal text-brand-muted">(optional)</span><input name="email" type="email" autocomplete="email" /></label>
+    <label>Selected course<select name="course" required><option value="">Choose a course</option>{courses.map((course) => <option value={course.title}>{course.title}</option>)}</select></label>
+  </div>
+  <div class="grid gap-5 sm:grid-cols-2">
+    <label>Preferred batch<select name="batch"><option>8:00 AM to 10:00 AM</option><option>10:00 AM to 12:00 PM</option><option>To be confirmed</option></select></label>
+    <label>Qualification<input name="qualification" required /></label>
+  </div>
+  <label>Message<textarea name="message" rows="4" placeholder="Tell us what you would like to know."></textarea></label>
+
+  {/* Honeypot: bots fill this, humans never see it. */}
+  <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+
+  <p class="hidden text-sm font-semibold text-red-700" role="alert" data-error>Please check the required fields and enter a 10-digit phone number.</p>
+  <p class="hidden text-sm font-semibold text-brand-whatsapp" role="status" data-success>Thank you — your enquiry has been sent. NAC-MIT will call you back. For anything urgent, call {site.phones[0]}.</p>
+  <p class="hidden text-sm font-semibold text-red-700" role="alert" data-fallback>
+    This form could not be sent right now. Please call {site.phones[0]} or {site.phones[1]}, or message us on WhatsApp — we will get straight back to you.
+  </p>
+
+  <button class="btn btn-primary w-fit" type="submit" data-submit>Send enquiry</button>
+</form>
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-enquiry-form]');
+  const button = form?.querySelector<HTMLButtonElement>('[data-submit]');
+  const show = (name: string, on: boolean) => form?.querySelector(`[data-${name}]`)?.classList.toggle('hidden', !on);
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const valid = form.checkValidity();
+    show('error', !valid);
+    show('success', false);
+    show('fallback', false);
+    if (!valid) return;
+
+    const accessKey = form.getAttribute('data-access-key');
+    if (!accessKey) {
+      // Not configured yet — never pretend the enquiry was received.
+      show('fallback', true);
+      return;
+    }
+
+    const original = button?.textContent ?? 'Send enquiry';
+    if (button) {
+      button.disabled = true;
+      button.textContent = 'Sending…';
+    }
+
+    try {
+      const payload = Object.fromEntries(new FormData(form).entries());
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          ...payload,
+          access_key: accessKey,
+          subject: `Course enquiry: ${payload.course || 'not specified'}`,
+          from_name: 'NAC-MIT website'
+        })
+      });
+      if (!response.ok) throw new Error(String(response.status));
+      form.reset();
+      show('success', true);
+      if (button) button.textContent = 'Enquiry sent';
+    } catch {
+      show('fallback', true);
+      if (button) {
+        button.disabled = false;
+        button.textContent = original;
+      }
+    }
+  });
+</script>

@@ -1,0 +1,38 @@
+---
+import {site} from '../data/site';
+const navLinks = [
+  { href: '/courses/', label: 'Courses' },
+  { href: '/about/', label: 'About' },
+  { href: '/curriculum/', label: 'Curriculum' },
+  { href: '/fees/', label: 'Fees' },
+  { href: '/contact/', label: 'Contact' }
+];
+---
+<header class="sticky top-0 z-40 border-b border-brand-line bg-white/95 backdrop-blur">
+  <div class="container flex min-h-[76px] items-center justify-between gap-5">
+    <a href="/" class="flex items-center gap-3" aria-label="NAC-MIT Computer Training Center home">
+      <span class="grid h-11 w-11 place-items-center bg-brand-yellow font-bold text-brand-navy">NM</span>
+      <span class="leading-tight">
+        <strong class="block font-['Space_Grotesk'] text-base">{site.shortName}</strong>
+        <small class="hidden text-[10px] font-semibold uppercase tracking-[.12em] text-brand-muted sm:block">Computer Training Center</small>
+      </span>
+    </a>
+    <button class="btn-icon md:hidden" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav" data-menu><span aria-hidden="true">☰</span></button>
+    <nav id="site-nav" class="absolute left-0 right-0 top-[76px] hidden border-b border-brand-line bg-white p-5 md:static md:block md:border-0 md:p-0" data-nav>
+      <div class="flex flex-col gap-4 text-sm font-semibold md:flex-row md:items-center md:gap-6">
+        {navLinks.map((link) => <a class="transition hover:text-brand-blue" href={link.href}>{link.label}</a>)}
+        <a class="btn btn-primary btn-sm" href="/contact/#counselling">Request counselling</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<script>
+  const button = document.querySelector('[data-menu]');
+  const nav = document.querySelector('[data-nav]');
+  button?.addEventListener('click', () => {
+    const open = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', String(!open));
+    button.setAttribute('aria-label', open ? 'Open navigation menu' : 'Close navigation menu');
+    nav?.classList.toggle('hidden', open);
+  });
+</script>
