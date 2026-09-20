@@ -2,9 +2,8 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
-// TODO: replace with the real production domain before launch.
 // Every canonical URL, the sitemap, robots.txt and all JSON-LD URLs derive from this.
-const SITE_URL = "https://nacmit.example";
+const SITE_URL = "https://nac-mit.netlify.app";
 
 export default defineConfig({
   site: SITE_URL,
