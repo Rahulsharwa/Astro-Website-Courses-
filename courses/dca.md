@@ -33,13 +33,13 @@ Students, beginners, homemakers, job seekers, and anyone preparing for computer-
 - **Typing practice:** 1 hour
 - **Computer facility:** One computer for each student
 - **Age limit:** No age limit
-- **Eligibility:** 10th standard pass
+- **Eligibility:** 12th standard pass
 - **Admission:** Direct admission at the institute
 - **Course fee:** ₹12,650 + examination fee
 
 ## Required Documents
 
-- 10th standard marksheet or certificate
+- 12th standard marksheet or certificate
 - Photocopy of Aadhaar Card
 - Passport-size photographs
 
@@ -98,7 +98,7 @@ NAC-MIT Computer Training Center is a partnered and authorized franchise centre 
 
 ### What is the DCA eligibility?
 
-Students who have passed 10th standard can apply for DCA at NAC-MIT.
+Students who have passed 12th standard can apply for DCA at NAC-MIT.
 
 ### What is the DCA fee?
 

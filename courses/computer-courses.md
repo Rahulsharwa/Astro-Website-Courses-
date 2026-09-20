@@ -2,7 +2,7 @@
 
 ## Practical, Job-Oriented Computer Training
 
-NAC-MIT Computer Training Center offers computer courses after 10th and 12th, beginner computer classes, practical computer training, and job-oriented courses at Karmchari Bhawan, Dhamtari, Chhattisgarh.
+NAC-MIT Computer Training Center offers computer courses after 12th and graduation, beginner computer classes, practical computer training, and job-oriented courses at Karmchari Bhawan, Dhamtari, Chhattisgarh.
 
 ## Courses Available
 
@@ -17,7 +17,7 @@ NAC-MIT Computer Training Center offers computer courses after 10th and 12th, be
 
 ## SEO Keyword Targets
 
-**Informational:** computer courses after 10th, computer courses after 12th, best computer courses for beginners, computer courses for job seekers, computer skills course, practical computer training, job-oriented computer courses, computer diploma course, computer training course syllabus, computer course career options.
+**Informational:** computer courses after 12th, computer courses after graduation, best computer courses for beginners, computer courses for job seekers, computer skills course, practical computer training, job-oriented computer courses, computer diploma course, computer training course syllabus, computer course career options.
 
 **Navigational:** NAC-MIT Computer Training Center, computer institute in Dhamtari, computer classes in Dhamtari, computer training centre near me, best computer institute near Kachahari Chowk, computer institute near Karmchari Bhawan.
 

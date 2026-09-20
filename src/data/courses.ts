@@ -8,13 +8,13 @@ export const courses: Course[] = [
   {
     slug: "dca-course", title: "DCA Course", shortTitle: "DCA", eyebrow: "Diploma in Computer Applications", icon: "01",
     description: "A practical foundation in computer applications, office productivity, typing and everyday digital work.",
-    fee: "₹12,650 + examination fee", feeAmount: 12650, eligibility: "10th standard pass", batchTimings: ["8:00–10:00 AM", "10:00 AM–12:00 PM"],
+    fee: "₹12,650 + examination fee", feeAmount: 12650, eligibility: "12th standard pass", batchTimings: ["8:00–10:00 AM", "10:00 AM–12:00 PM"],
     curriculum: ["Computer fundamentals and operating systems", "MS Word, Excel and PowerPoint", "Typing, internet and email", "File, folder and document management", "Basic database, presentation and cyber-safety concepts"],
     highlights: ["Individual computer facility", "Theory and practical training", "DCA course books and course kit", "T-shirt, institute bag and student ID card", "Marksheet and certificate guidance"],
     before: ["Limited understanding of computer operations", "Difficulty using Windows and basic software", "Little or no knowledge of Word, Excel and PowerPoint", "Limited typing, file-management and office-work confidence"],
     after: ["Confident use of computers and operating systems", "Ability to create documents, spreadsheets and presentations", "Better internet, email, typing and file-management skills", "Improved readiness for entry-level computer jobs and further software learning"],
     benefits: [...common, "Job-oriented training for office applications and entry-level computer work"],
-    documents: ["10th standard marksheet or certificate", "Photocopy of Aadhaar Card", "Passport-size photographs"],
+    documents: ["12th standard marksheet or certificate", "Photocopy of Aadhaar Card", "Passport-size photographs"],
     kit: ["DCA study books", "Course notes and practical assignment material", "Computer practice resources", "Branded T-shirt", "Institute bag", "Student ID card"], kitNote,
     affiliation: "NAC-MIT Computer Training Center is a partnered and authorized franchise centre of Dr. C.V. Raman University, Bilaspur, Chhattisgarh, for the DCA course.",
     keywords: seo(
@@ -23,7 +23,7 @@ export const courses: Course[] = [
       "DCA course fees|DCA course fees in Dhamtari|best DCA institute in Dhamtari|DCA course with certificate|DCA course with practical training|DCA course with placement support|DCA course comparison|affordable DCA course in Dhamtari|DCA course near me",
       "DCA admission in Dhamtari|join DCA course|DCA enrollment|apply for DCA course|DCA admission form|DCA classes near me|book DCA demo class|DCA course contact number"),
     faqs: faq([
-      ["What is the DCA eligibility?", "Students who have passed 10th standard can apply for DCA at NAC-MIT. There is no age limit."],
+      ["What is the DCA eligibility?", "Students who have passed 12th standard can apply for DCA at NAC-MIT. There is no age limit."],
       ["What is the DCA fee?", "The DCA fee is ₹12,650 plus examination fee. Books and course kit are included; the examination fee is paid separately."],
       ["What are the DCA batch timings?", "DCA batches run 8:00–10:00 AM and 10:00 AM–12:00 PM, with one hour of theory and one hour of practical."],
       ["What does the DCA course include?", "Computer fundamentals, MS Office, typing, internet, email, file management, basic databases, cyber safety and practical assignments."],
@@ -31,23 +31,23 @@ export const courses: Course[] = [
     ]),
     seoContent: [
       topic("dca-course-overview", "Course overview and syllabus", [
-        ["What is the DCA course?", "DCA stands for Diploma in Computer Applications. It is a practical computer diploma course for students who have finished 10th standard and want a recognised qualification rather than a short skill class. The NAC-MIT DCA course is taught as an authorised centre of Dr. C.V. Raman University, Bilaspur, so the marksheet and certificate come through the university route."],
+        ["What is the DCA course?", "DCA stands for Diploma in Computer Applications. It is a practical computer diploma course for students who have finished 12th standard and want a recognised qualification rather than a short skill class. The NAC-MIT DCA course is taught as an authorised centre of Dr. C.V. Raman University, Bilaspur, so the marksheet and certificate come through the university route."],
         ["What does the DCA course syllabus include?", "The DCA syllabus starts with computer fundamentals and operating systems, then moves through MS Word, Excel and PowerPoint, typing, internet and email, and file and folder management. It finishes with basic database and presentation concepts plus cyber safety and digital payments. The DCA computer skills you practise are the ones an office actually uses, and every topic has a practical assignment attached to it."]
       ]),
       topic("dca-course-eligibility", "Duration, eligibility and who it suits", [
-        ["What is the DCA course eligibility and duration?", "DCA course eligibility is a 10th standard pass. There is no age limit. Classes run in two-hour daily batches — one hour of theory and one hour of practical — at 8:00–10:00 AM or 10:00 AM–12:00 PM. Course duration follows the university's DCA schedule, so confirm the current session dates with the institute when you enquire."],
+        ["What is the DCA course eligibility and duration?", "DCA course eligibility is a 12th standard pass. There is no age limit. Classes run in two-hour daily batches — one hour of theory and one hour of practical — at 8:00–10:00 AM or 10:00 AM–12:00 PM. Course duration follows the university's DCA schedule, so confirm the current session dates with the institute when you enquire."],
         ["Who should join the DCA course?", "DCA suits school leavers who want a computer diploma course on their qualification list, job seekers applying for office and clerical roles, and working people who never learned computers formally. If you only need one skill — typing, or Tally, or Excel — a shorter course will get you there faster and cheaper."]
       ]),
       topic("dca-course-benefits", "Skills, benefits and career options", [
         ["What skills will you have after DCA?", "You will be able to operate a computer and its operating system without help, create documents, spreadsheets and presentations, handle internet, email and online forms, and manage files and folders properly. The DCA course benefits that students mention most are typing speed and the confidence to sit at an unfamiliar computer and get work done."],
-        ["What can I do after DCA?", "DCA career options include data entry, office assistant, computer operator and front-desk roles, and the diploma is often asked for in clerical applications. Many students continue to PGDCA after 12th, or add Tally Prime for accounts work. NAC-MIT provides career guidance and placement guidance based on each student's skills, qualification and performance."]
+        ["What can I do after DCA?", "DCA career options include data entry, office assistant, computer operator and front-desk roles, and the diploma is often asked for in clerical applications. Many students add Tally Prime for accounts work or continue with advanced computer learning after DCA. NAC-MIT provides career guidance and placement guidance based on each student's skills, qualification and performance."]
       ]),
       topic("dca-course-fees", "Fees, certificate and what's included", [
         ["What are the DCA course fees in Dhamtari?", "The DCA course fee at NAC-MIT is ₹12,650 plus the examination fee, which is paid separately to the university. Study books, practical assignment material, a branded T-shirt, institute bag and student ID card are included in that fee. When making a DCA course comparison between institutes, ask specifically whether books, kit and examination charges are inside or outside the quoted number — that is usually where the difference sits."],
         ["Is this a DCA course with certificate, practical training and placement support?", "Yes. Every session includes practical time with one computer per student, so DCA practical training is not shared or demonstrated from the front. Marksheet and certificate facilities are provided according to eligibility, course rules and the university's affiliation guidelines. Placement guidance is offered based on your skills and performance — it is guidance and preparation, not a job guarantee."]
       ]),
       topic("dca-course-admission", "Admission, location and contact", [
-        ["How do I join the DCA course in Dhamtari?", `DCA admission in Dhamtari is direct at the institute — there is no online entrance test. To apply for the DCA course, bring your 10th standard marksheet, a photocopy of your Aadhaar Card and passport-size photographs; the DCA admission form is completed at the centre and DCA enrollment is confirmed the same day. The DCA course contact number is ${PHONE} — call to check batch availability or to book a DCA demo class before you join.`],
+        ["How do I join the DCA course in Dhamtari?", `DCA admission in Dhamtari is direct at the institute — there is no online entrance test. To apply for the DCA course, bring your 12th standard marksheet or certificate, a photocopy of your Aadhaar Card and passport-size photographs; the DCA admission form is completed at the centre and DCA enrollment is confirmed the same day. The DCA course contact number is ${PHONE} — call to check batch availability or to book a DCA demo class before you join.`],
         ["Where can I find DCA classes near me in Dhamtari?", `If you are searching for a DCA institute in Dhamtari, NAC-MIT Computer Training Center is at ${ADDRESS}, beside Kachahari Chowk — the building local people know as Karmchari Bhawan. DCA classes in Dhamtari run here daily and the institute is open ${site.instituteHours}. As a Dr. C.V. Raman University DCA centre, the marksheet and certificate route is the university one. Come in during opening hours to see the classroom before deciding; you can sit in on a session.`]
       ])
     ]
@@ -57,35 +57,35 @@ export const courses: Course[] = [
   {
     slug: "pgdca-course", title: "PGDCA Course", shortTitle: "PGDCA", eyebrow: "Post Graduate Diploma in Computer Applications", icon: "02",
     description: "Deeper learning in software, programming logic, databases, web technology and professional IT applications.",
-    fee: "₹15,650 + examination fee", feeAmount: 15650, eligibility: "12th standard pass", batchTimings: ["8:00–10:00 AM", "10:00 AM–12:00 PM"],
+    fee: "₹15,650 + examination fee", feeAmount: 15650, eligibility: "Graduation pass", batchTimings: ["8:00–10:00 AM", "10:00 AM–12:00 PM"],
     curriculum: ["Computer architecture and operating systems", "Programming logic and application basics", "Database management and SQL concepts", "Web technology and internet applications", "Software engineering and project work"],
     highlights: ["Individual computer facility", "Theory and practical training", "PGDCA course books and course kit", "T-shirt, institute bag and student ID card", "Marksheet and certificate guidance"],
     before: ["Basic or limited knowledge of computer applications", "Difficulty understanding advanced computer concepts", "Limited understanding of databases, software applications and digital records", "Limited technical problem-solving and career direction"],
     after: ["Stronger understanding of computer applications and office productivity", "Better knowledge of databases and application-based work", "Improved technical problem-solving and digital communication", "Readiness for office, administration and data-related roles"],
     benefits: [...common, "Job-oriented preparation for professional computer and administrative work"],
-    documents: ["10th standard marksheet", "12th standard marksheet", "Photocopy of Aadhaar Card", "Passport-size photographs"],
+    documents: ["Graduation marksheet or degree certificate", "Photocopy of Aadhaar Card", "Passport-size photographs"],
     kit: ["PGDCA study books", "Subject-wise course material", "Practical assignment material", "Computer application learning resources", "Branded T-shirt", "Institute bag", "Student ID card"], kitNote,
     affiliation: "NAC-MIT Computer Training Center is a partnered and authorized franchise centre of Dr. C.V. Raman University, Bilaspur, Chhattisgarh, for the PGDCA course.",
     keywords: seo(
       "What is PGDCA course|PGDCA course details|PGDCA syllabus|PGDCA subjects|PGDCA course duration|PGDCA eligibility|PGDCA career options|PGDCA course benefits|What can I do after PGDCA|PGDCA practical training|PGDCA course curriculum|PGDCA certificate details",
       "NAC-MIT PGDCA course|PGDCA course NAC-MIT|PGDCA institute in Dhamtari|PGDCA classes in Dhamtari|NAC-MIT PGDCA admission|PGDCA study centre in Dhamtari|Dr. C.V. Raman University PGDCA centre",
-      "PGDCA course fees|PGDCA fees in Dhamtari|best PGDCA institute in Dhamtari|PGDCA course with certificate|PGDCA course with practical training|PGDCA course after 12th|PGDCA institute comparison|affordable PGDCA course|PGDCA course near me",
+      "PGDCA course fees|PGDCA fees in Dhamtari|best PGDCA institute in Dhamtari|PGDCA course with certificate|PGDCA course with practical training|PGDCA course after graduation|PGDCA institute comparison|affordable PGDCA course|PGDCA course near me",
       "PGDCA admission in Dhamtari|join PGDCA course|PGDCA admission form|apply for PGDCA|PGDCA enrollment|PGDCA classes near me|book PGDCA counselling|PGDCA course contact number"),
     faqs: faq([
-      ["What is the PGDCA eligibility?", "Students who have passed 12th standard can apply for PGDCA at NAC-MIT. There is no age limit."],
+      ["What is the PGDCA eligibility?", "Students who have completed graduation can apply for PGDCA at NAC-MIT. There is no age limit."],
       ["What is the PGDCA fee?", "The PGDCA fee is ₹15,650 plus examination fee. Subject-wise books and course kit are included."],
       ["What are the PGDCA batch timings?", "PGDCA batches run 8:00–10:00 AM and 10:00 AM–12:00 PM, with one hour of theory and one hour of practical."],
       ["What does PGDCA include?", "Computer architecture, programming logic, database management and SQL, web technology, software engineering and project work."],
-      ["How do I apply for PGDCA?", `Call ${PHONE} or visit NAC-MIT at ${ADDRESS}. Bring your 10th and 12th marksheets; the PGDCA admission form is completed at the institute.`]
+      ["How do I apply for PGDCA?", `Call ${PHONE} or visit NAC-MIT at ${ADDRESS}. Bring your graduation marksheet or degree certificate, photocopy of your Aadhaar Card and passport-size photographs; the PGDCA admission form is completed at the institute.`]
     ]),
     seoContent: [
       topic("pgdca-course-overview", "Course overview and syllabus", [
-        ["What is the PGDCA course?", "PGDCA is the Post Graduate Diploma in Computer Applications — a step beyond DCA for students who have completed 12th standard or graduation. Where DCA teaches you to use software, PGDCA teaches you how the software works underneath: how data is stored and queried, how programs are structured, how web applications are put together. The NAC-MIT PGDCA course runs as an authorised PGDCA study centre of Dr. C.V. Raman University, Bilaspur."],
+        ["What is the PGDCA course?", "PGDCA is the Post Graduate Diploma in Computer Applications — an advanced course for graduates who want deeper knowledge of software, databases, programming logic and web technology. Where DCA teaches you to use software, PGDCA teaches you how the software works underneath: how data is stored and queried, how programs are structured, how web applications are put together. The NAC-MIT PGDCA course runs as an authorised PGDCA study centre of Dr. C.V. Raman University, Bilaspur."],
         ["What is in the PGDCA syllabus?", "The PGDCA course curriculum covers computer architecture and operating systems, programming logic and application basics, database management and SQL concepts, web technology and internet applications, and software engineering with project work. PGDCA subjects are taught with a practical session attached to each one, and the course finishes with a project you build yourself rather than an exam alone."]
       ]),
       topic("pgdca-course-eligibility", "Duration, eligibility and who it suits", [
-        ["What is PGDCA eligibility and course duration?", "PGDCA eligibility is a 12th standard pass; graduates are equally welcome and there is no age limit. It is the natural PGDCA course after 12th for students who already have some computer familiarity. Classes run in two-hour daily batches at 8:00–10:00 AM or 10:00 AM–12:00 PM. PGDCA course duration follows the university session, so check current dates when you enquire."],
-        ["Should I do DCA or PGDCA?", "If you have only finished 10th, DCA is the available route and a sensible starting point. If you have finished 12th and can already use a computer comfortably, go straight to PGDCA — it covers the DCA ground faster and then goes considerably further into databases, programming logic and web technology. Students unsure which fits can ask for counselling at the centre before enrolling."]
+        ["What is PGDCA eligibility and course duration?", "PGDCA eligibility is graduation. There is no age limit. It is the natural PGDCA course after graduation for students who want advanced knowledge of databases, programming logic, web technology and software applications. Classes run in two-hour daily batches at 8:00–10:00 AM or 10:00 AM–12:00 PM. PGDCA course duration follows the university session, so check current dates when you enquire."],
+        ["Should I do DCA or PGDCA?", "DCA is the available route after 12th and builds a strong foundation in computer applications, MS Office and typing. PGDCA is intended for graduates and goes further into databases, programming logic and web technology. Students unsure which fits can ask for counselling at the centre before enrolling."]
       ]),
       topic("pgdca-course-benefits", "Skills, benefits and career options", [
         ["What are the PGDCA course benefits?", "You come out able to work with databases and structured records rather than just documents, understand how applications are built, handle web and internet technologies, and approach a technical problem methodically. These PGDCA course benefits matter most in roles where you are responsible for data rather than only typing it — record keeping, reporting and administration."],
@@ -96,7 +96,7 @@ export const courses: Course[] = [
         ["Is this a PGDCA course with certificate and practical training?", "Marksheet and certificate facilities are provided according to eligibility, course rules and Dr. C.V. Raman University's affiliation guidelines. PGDCA practical training is delivered with one computer per student throughout, and project work is assessed as part of the course rather than added on at the end."]
       ]),
       topic("pgdca-course-admission", "Admission, location and contact", [
-        ["How do I join PGDCA in Dhamtari?", `PGDCA admission in Dhamtari is direct at the institute. To apply for PGDCA, bring your 10th and 12th standard marksheets, a photocopy of your Aadhaar Card and passport-size photographs; the PGDCA admission form is filled in at the centre and PGDCA enrollment is confirmed there. The PGDCA course contact number is ${PHONE} — call to book PGDCA counselling first if you want to discuss whether the course suits your background. NAC-MIT PGDCA admission is open through the year, subject to batch availability.`],
+        ["How do I join PGDCA in Dhamtari?", `PGDCA admission in Dhamtari is direct at the institute. To apply for PGDCA, bring your graduation marksheet or degree certificate, a photocopy of your Aadhaar Card and passport-size photographs; the PGDCA admission form is filled in at the centre and PGDCA enrollment is confirmed there. The PGDCA course contact number is ${PHONE} — call to book PGDCA counselling first if you want to discuss whether the course suits your background. NAC-MIT PGDCA admission is open through the year, subject to batch availability.`],
         ["Where can I find PGDCA classes near me in Dhamtari?", `The NAC-MIT PGDCA course runs at ${ADDRESS} — the Karmchari Bhawan building at Kachahari Chowk. If you are looking for a PGDCA institute in Dhamtari or a PGDCA study centre in Dhamtari, this is a Dr. C.V. Raman University PGDCA centre, so the qualification comes through the university. PGDCA classes in Dhamtari run here daily and the institute is open ${site.instituteHours}.`]
       ])
     ]

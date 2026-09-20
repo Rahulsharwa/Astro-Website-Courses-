@@ -34,14 +34,13 @@ Graduates, diploma holders, professionals upgrading their skills, and learners p
 - **Typing practice:** 1 hour
 - **Computer facility:** One computer for each student
 - **Age limit:** No age limit
-- **Eligibility:** 12th standard pass
+- **Eligibility:** Graduation pass
 - **Admission:** Direct admission at the institute
 - **Course fee:** ₹15,650 + examination fee
 
 ## Required Documents
 
-- 10th standard marksheet
-- 12th standard marksheet
+- Graduation marksheet or degree certificate
 - Photocopy of Aadhaar Card
 - Passport-size photographs
 
@@ -91,7 +90,7 @@ NAC-MIT Computer Training Center is a partnered and authorized franchise centre 
 
 **Navigational:** NAC-MIT PGDCA course, PGDCA institute in Dhamtari, PGDCA classes in Dhamtari, NAC-MIT PGDCA admission, PGDCA study centre in Dhamtari, Dr. C.V. Raman University PGDCA centre.
 
-**Commercial:** PGDCA course fees, PGDCA fees in Dhamtari, best PGDCA institute in Dhamtari, PGDCA course with certificate, PGDCA course with practical training, PGDCA course after 12th, affordable PGDCA course, PGDCA course near me.
+**Commercial:** PGDCA course fees, PGDCA fees in Dhamtari, best PGDCA institute in Dhamtari, PGDCA course with certificate, PGDCA course with practical training, PGDCA course after graduation, affordable PGDCA course, PGDCA course near me.
 
 **Transactional:** PGDCA admission in Dhamtari, join PGDCA course, PGDCA admission form, apply for PGDCA, PGDCA enrollment, PGDCA classes near me, book PGDCA counselling, PGDCA course contact number.
 
@@ -99,7 +98,7 @@ NAC-MIT Computer Training Center is a partnered and authorized franchise centre 
 
 ### What is the PGDCA eligibility?
 
-Students who have passed 12th standard can apply for PGDCA at NAC-MIT.
+Students who have completed graduation can apply for PGDCA at NAC-MIT.
 
 ### What is the PGDCA fee?
 
